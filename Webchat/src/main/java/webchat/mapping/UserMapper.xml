@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="webchat.UserDao">
+	<resultMap type="webchat.model.User" id="UserMap">
+		<id column="UserId" property="UserId" jdbcType="NVARCHAR"/>
+		<result column="UserName" property="UserName" jdbcType="NVARCHAR"/>
+		<result column="UserPass" property="UserPass" jdbcType="NVARCHAR"/>
+	</resultMap>
+	<select id="login" resultMap="UserMap" parameterType="java.lang.String">
+		select *
+		from User
+		where UserId = #{UserId} and Password = #{UserPass}
+	</select>
+
+</mapper>

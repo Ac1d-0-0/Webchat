@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\Users\Ac1d\git\Webchat\work_station\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\903199291.index
+\Webchat\src\main\java
+C:\Users\Ac1d\git\Webchat\work_station\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\758903857.index
+\Webchat\src\main\java

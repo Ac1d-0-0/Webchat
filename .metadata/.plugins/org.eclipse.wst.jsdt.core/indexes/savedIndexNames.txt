@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\Ac1d\git\Webchat\work_station\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3632637791.index
+3561135106.index
+903199291.index
+1649071517.index
+2127264171.index
+2336759223.index
+4219165228.index
