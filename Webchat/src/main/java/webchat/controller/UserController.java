@@ -27,7 +27,7 @@ public class UserController
 		int i = uservice.login(ID, pass);
 		return jo;		
 	}
-	@RequestMapping("/loginpage")//www.xxx.com/user/loginpage
+	@RequestMapping("/loginpage")//www.xxx.com/Webchat/user/loginpage
 	public ModelAndView showlogin(HttpServletRequest request)
 	{
 		ModelAndView modelview = new ModelAndView("/loginpage");//		www.xxx.com/user/loginpage/

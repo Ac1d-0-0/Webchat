@@ -11,10 +11,10 @@
     <link rel="icon" href="./dist/media/img/favicon.png" type="image/png">
 	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <!-- Bundle Styles -->
-    <link rel="stylesheet" href="/Webcaht/vendor/bundle.css">
+    <link rel="stylesheet" href="/Webchat/vendor/bundle.css">
 
     <!-- App styles -->
-    <link rel="stylesheet" href="/Webcaht/dist/css/app.min.css">
+    <link rel="stylesheet" href="/Webchat/dist/css/app.min.css">
 </head>
 <body class="form-membership">
 
@@ -83,11 +83,11 @@
 
 <!-- Bundle -->
 <script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
-<script src="./vendor/bundle.js"></script>
-<script src="./vendor/feather.min.js"></script>
+<script src="/Webchat/vendor/bundle.js"></script>
+<script src="/Webchat/vendor/feather.min.js"></script>
 
 <!-- App scripts -->
-<script src="./dist/js/app.min.js"></script>
+<script src="/Webchat/dist/js/app.min.js"></script>
 <script type="application/javascript">
 	 $("#login").click(function () {
 						var id=document.getElementById("id");

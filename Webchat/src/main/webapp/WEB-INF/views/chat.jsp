@@ -11,10 +11,10 @@
     <!-- Favicon -->
     <link rel="icon" href="./dist/media/img/favicon.png" type="image/png">
     <!-- Bundle Styles -->
-    <link rel="stylesheet" href="./vendor/bundle.css">
-    <link rel="stylesheet" href="./vendor/enjoyhint/enjoyhint.css">
+    <link rel="stylesheet" href="/vendor/bundle.css">
+    <link rel="stylesheet" href="/enjoyhint/enjoyhint.css">
     <!-- App styles -->
-    <link rel="stylesheet" href="./dist/css/app.min.css">
+    <link rel="stylesheet" href="/dist/css/app.min.css">
 </head>
 <body>
 
