@@ -2,8 +2,10 @@ package webchat.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,15 +19,24 @@ public class UserController
 {
 	@Resource
 	private UserService uservice;
+	private SimpMessagingTemplate messagingTemplate;
 	@RequestMapping("/login")//www.xxx.com/user/login
 	@ResponseBody
-	public JSONObject Login(HttpServletRequest request)
+	public String Login(HttpServletRequest request)
 	{
-		JSONObject jo = new JSONObject();
+		String result;
 		String ID = request.getParameter("UserID");
 		String pass = request.getParameter("Password");
 		int i = uservice.login(ID, pass);
-		return jo;		
+		if(i==1)
+		{
+			result = "true";
+			HttpSession session = request.getSession();
+			session.setAttribute("ID", ID);
+		}
+		else
+			result = "false";
+		return result;		
 	}
 	@RequestMapping("/loginpage")//www.xxx.com/Webchat/user/loginpage
 	public ModelAndView showlogin(HttpServletRequest request)
