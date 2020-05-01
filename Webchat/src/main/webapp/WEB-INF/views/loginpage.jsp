@@ -11,10 +11,10 @@
     <link rel="icon" href="./dist/media/img/favicon.png" type="image/png">
 	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <!-- Bundle Styles -->
-    <link rel="stylesheet" href="./vendor/bundle.css">
+    <link rel="stylesheet" href="/Webcaht/vendor/bundle.css">
 
     <!-- App styles -->
-    <link rel="stylesheet" href="./dist/css/app.min.css">
+    <link rel="stylesheet" href="/Webcaht/dist/css/app.min.css">
 </head>
 <body class="form-membership">
 
