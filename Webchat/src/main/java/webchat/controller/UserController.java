@@ -26,8 +26,8 @@ public class UserController
 	public String Login(HttpServletRequest request)
 	{
 		String result;
-		String ID = request.getParameter("UserID");
-		String pass = request.getParameter("Password");
+		String ID = request.getParameter("id");
+		String pass = request.getParameter("pass");
 		System.out.println(ID+"  "+pass);
 		int i = uservice.login(ID, pass);
 		if(i==1)

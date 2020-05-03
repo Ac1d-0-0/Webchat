@@ -60,7 +60,7 @@
     <h5>Sign in</h5>
 
     <!-- form -->
-    <form>
+    <form id="loginForm" enctype="application/x-www-form-urlencoded">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username or Useremail" required autofocus id="id">
         </div>
@@ -90,30 +90,17 @@
 <script src="/Webchat/dist/js/app.min.js"></script>
 <script type="application/javascript">
 	 $("#login").click(function () {
-						var id=document.getElementById("id");
-						var pass=document.getElementById("pass");
+						var loginForm =$("#loginForm").serialize()
 						alert("666");
-			            $.ajax({
-			                type: "POST",
-			                url: "/Webchat/user/login",
-			                header:{
-			                	'content-type': 'application/x-www-form-urlencoded'
-			                }
-			                data: {
-			                    'UserID': id,
-			                    'Password': pass,
-			                },
-			                
-			                success: function (data) {
-			                    if (data == "false") {
-			                        alert("用户名或密码错误");
-			                    }
-								else{
-									
-									window.location.replace("Webchat/user/chat");
-								}
-			                }
-			            });
+						$.post("/Webchat/user/login",loginForm,function(result){
+							if(result=="true"){//登录成功
+				                
+				                window.location.href="http://www.baidu.com";
+				                
+				            }else{
+								alert("登陆失败")
+				            }
+						})
 			        });
 	
 </script>
