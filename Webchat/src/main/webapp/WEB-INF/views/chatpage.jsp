@@ -372,6 +372,11 @@
 <!-- Examples -->
 <script src="/Webchat/dist/js/examples.js"></script>
 
+<!--sockJS cdn-->
+<script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+<!--stomp cdn-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
 <script type="application/javascript">
 	 $("#invite").click(function () {
 						var email=document.getElementById("email");
@@ -390,24 +395,8 @@
 			                }
 			            });
 			        });
-	 $("#send").click(function(){
-		 var message = document.getElementById("usermessage");
-		 var friendid = "111";
-		 var messageform = {"Content":message,"Friendid":friendid};
-			$.post("/app/chat/message",messageform,function(result){
-				if(result=="true"){//注册成功
-	            	alert("send successfully!!");
-	            }else{
-					alert("sending failed!!");
-	            }
-			})		 
-		 
-	 }
 			 
-	 );
-	
-	
 </script>
-
+<script src="../chatroom.js"></script>
 </body>
 </html>
