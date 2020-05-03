@@ -1,5 +1,7 @@
 package webchat.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -31,6 +33,26 @@ public class UserServiceImpl implements UserService
 			 return 0;
 		 else
 			 return 1;
+	}
+
+	public User selectuser(String id) {
+		// TODO 自动生成的方法存根
+		return null;
+	}
+
+	public List<User> showfriends(String id) {
+		// TODO 自动生成的方法存根
+		return null;
+	}
+
+	public int joingroup(String id) {
+		// TODO 自动生成的方法存根
+		return 0;
+	}
+
+	public int makefriends(String myid, String fdid) {
+		// TODO 自动生成的方法存根
+		return 0;
 	}
 
 }

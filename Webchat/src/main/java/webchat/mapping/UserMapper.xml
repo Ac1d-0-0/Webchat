@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="webchat.UserDao">
+<mapper namespace="webchat.dao.UserDao">
 	<resultMap type="webchat.model.User" id="UserMap">
 		<id column="u_id" property="UserId" jdbcType="INTEGER"/>
 		<result column="u_name" property="UserName" jdbcType="VARCHAR"/>
-		<result column="u_password" property="UserPass" jdbcType="NVARCHAR"/>
+		<result column="u_password" property="UserPass" jdbcType="VARCHAR"/>
 	</resultMap>
 	<select id="login" resultMap="UserMap" parameterType="java.lang.String">
 		select distinct *
