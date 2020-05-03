@@ -22,9 +22,9 @@ public class UserServiceImpl implements UserService
 		return u;
 	}
 	
-	public int registe(String pass,String name,String email)
+	public int register(String pass,String name,String email)
 	{
-		 int result = ud.registe(pass, name, email);
+		 int result = ud.register(pass, name, email);
 		 if(result==0)
 			 return 0;
 		 else

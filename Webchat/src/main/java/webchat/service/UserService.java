@@ -21,7 +21,7 @@ public interface UserService
 	 * @param email
 	 * @return 返回注册状态，1为成功，0为失败
 	 */
-	public int registe(String pass,String name,String email);
+	public int register(String pass,String name,String email);
 	/**
 	 * 根据用户id查找用户
 	 * @param id 用户id

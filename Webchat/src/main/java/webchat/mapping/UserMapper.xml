@@ -14,8 +14,8 @@
 		where u_name = #{User} and u_password = #{UserPass}
 		or u_email = #{User} and u_password = #{UserPass}
 	</select>
-	<insert id="registe" parameterType="java.lang.String">
-		insert into tb_user ("u_name","u_password","u_email")
+	<insert id="register" parameterType="java.lang.String">
+		insert into tb_user (u_name,u_password,u_email)
 		value
 		(#{UserName},#{Password},#{UserEmail})
 	</insert>

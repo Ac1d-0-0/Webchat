@@ -26,7 +26,6 @@ public class UserController
 	@ResponseBody
 	public String Login(HttpServletRequest request)
 	{
-		String result;
 		String name = request.getParameter("UserName");
 		String pass = request.getParameter("Password");
 		User u = uservice.login(name, pass);
@@ -40,10 +39,10 @@ public class UserController
 		return "false";		
 	}
 	
-	@RequestMapping("/loginpage")//www.xxx.com/Webchat/user/loginpage
+	@RequestMapping("/loginpage")
 	public ModelAndView showLogin(HttpServletRequest request)
 	{
-		ModelAndView modelview = new ModelAndView("/loginpage");//		www.xxx.com/user/loginpage/
+		ModelAndView modelview = new ModelAndView("/loginpage");
 		return modelview;
 	}
 	
@@ -51,27 +50,31 @@ public class UserController
 	@ResponseBody
 	public String Register(HttpServletRequest request)
 	{
-		String result;
+		
 		String UserName = request.getParameter("UserName");
-		String pass = request.getParameter("Password");
-		String Email = request.getParameter("Email");
-		System.out.println(UserName+"  "+pass+"  "+Email);
-//		int i = uservice.login(ID, pass);
-//		if(i==1)
-//		{
-//			result = "true";
-//			HttpSession session = request.getSession();
-//			session.setAttribute("ID", ID);
-//		}
-//		else
-//			result = "false";
+		String Pass = request.getParameter("UserPass");
+		String Email = request.getParameter("UserEmail");
+		int result = uservice.register(Pass,UserName,Email);
+		if(result==1) {
+			return "true";
+		}
 		return "false";		
 	}
 	
-	@RequestMapping("/registerpage")//www.xxx.com/Webchat/user/register
+	@RequestMapping("/registerpage")
 	public ModelAndView showRegister(HttpServletRequest request)
 	{
-		ModelAndView modelview = new ModelAndView("/registerpage");//		www.xxx.com/user/loginpage/
+		ModelAndView modelview = new ModelAndView("/registerpage");
+		return modelview;
+	}
+	
+	
+	
+	
+	@RequestMapping("/chatpage")
+	public ModelAndView showChat(HttpServletRequest request)
+	{
+		ModelAndView modelview = new ModelAndView("/chatpage");
 		return modelview;
 	}
 }

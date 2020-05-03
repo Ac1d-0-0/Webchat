@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Slek - Chat and Discussion Platform</title>
     <!-- Favicon -->
-    <link rel="icon" href="./dist/media/img/favicon.png" type="image/png">
+    <link rel="icon" href="/Webchat/dist/media/img/favicon.png" type="image/png">
     <!-- Bundle Styles -->
     <link rel="stylesheet" href="/Webchat/vendor/bundle.css">
     <link rel="stylesheet" href="/Webchat/vendor/enjoyhint/enjoyhint.css">
@@ -192,7 +192,7 @@
                 <li data-toggle="tooltip" title="User menu" data-placement="right">
                     <a href="./login.html" data-toggle="dropdown">
                         <figure class="avatar">
-                            <img src="./dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
+                            <img src="/Webchat/dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
                         </figure>
                     </a>
                     <div class="dropdown-menu">
@@ -241,7 +241,7 @@
 						<c:forEach item="personlist" var="p">
                         <li class="list-group-item">
 							<figure class="avatar avatar-state-success">
-							    <img src="./dist/media/img/man_avatar1.jpg" class="rounded-circle" alt="image">
+							    <img src="/Webchat/dist/media/img/man_avatar1.jpg" class="rounded-circle" alt="image">
 							</figure>
                             <div class="users-list-body">
                                 <div>
@@ -285,7 +285,7 @@
                         <li class="list-group-item" data-navigation-target="chats">
                             <div>
                                 <figure class="avatar">
-                                    <img src="./dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
+                                    <img src="/Webchat/dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
                                 </figure>
                             </div>
                             <div class="users-list-body">
@@ -327,7 +327,7 @@
                     <div class="${m.messagetype}">
                         <div class="message-avatar">
                             <figure class="avatar">
-                                <img src="./dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
+                                <img src="/Webchat/dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
                             </figure>
                             <div>
                                 <h5>${m.name}</h5>
@@ -362,15 +362,15 @@
 
 <!-- Bundle -->
 <script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
-<script src="./vendor/bundle.js"></script>
-<script src="./vendor/feather.min.js"></script>
-<script src="./vendor/enjoyhint/enjoyhint.min.js"></script>
+<script src="/Webchat/vendor/bundle.js"></script>
+<script src="/Webchat/vendor/feather.min.js"></script>
+<script src="/Webchat/vendor/enjoyhint/enjoyhint.min.js"></script>
 
 <!-- App scripts -->
-<script src="./dist/js/app.min.js"></script>
+<script src="/Webchat/dist/js/app.min.js"></script>
 
 <!-- Examples -->
-<script src="./dist/js/examples.js"></script>
+<script src="/Webchat/dist/js/examples.js"></script>
 
 <script type="application/javascript">
 	 $("#invite").click(function () {
