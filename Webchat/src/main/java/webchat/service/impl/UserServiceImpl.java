@@ -14,14 +14,23 @@ public class UserServiceImpl implements UserService
 {
 	@Resource
 	private UserDao ud;
-	public int login(String id, String pass) 
+	public int login(String UserNameOrUserEmail, String Password) 
 	{
-		User u = ud.login(id, pass);
-		if(u.getUserId()==id&&u.getUserPass()==pass)
+		User u = ud.login(UserNameOrUserEmail, Password);
+		if((u.getUserName()==UserNameOrUserEmail&&u.getUserPass()==Password)||u.getUserEmail()==UserNameOrUserEmail&&u.getUserPass()==Password)
 		{
-			
+			return 1;
 		}
 		return 0;
+	}
+	
+	public int registe(String pass,String name,String email)
+	{
+		 int result = ud.registe(pass, name, email);
+		 if(result==0)
+			 return 0;
+		 else
+			 return 1;
 	}
 
 }

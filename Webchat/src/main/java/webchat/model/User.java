@@ -3,18 +3,20 @@ package webchat.model;
 public class User 
 {
 	private String UserName;
-	private String UserId;
+	private int UserId;
 	private String UserPass;
+	private String UserEmail;
+	
 	public String getUserName() {
 		return UserName;
 	}
 	public void setUserName(String userName) {
 		UserName = userName;
 	}
-	public String getUserId() {
+	public int getUserId() {
 		return UserId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		UserId = userId;
 	}
 	public String getUserPass() {
@@ -22,6 +24,12 @@ public class User
 	}
 	public void setUserPass(String userPass) {
 		UserPass = userPass;
+	}
+	public String getUserEmail() {
+		return UserEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		UserEmail = userEmail;
 	}
 	
 }

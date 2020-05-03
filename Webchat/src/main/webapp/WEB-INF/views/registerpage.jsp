@@ -9,13 +9,13 @@
     <title>Slek - Chat and Discussion Platform</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="./dist/media/img/favicon.png" type="image/png">
+    <link rel="icon" href="/Webchat/dist/media/img/favicon.png" type="image/png">
 	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <!-- Bundle Styles -->
-    <link rel="stylesheet" href="./vendor/bundle.css">
+    <link rel="stylesheet" href="/Webchat/vendor/bundle.css">
 
     <!-- App styles -->
-    <link rel="stylesheet" href="./dist/css/app.min.css">
+    <link rel="stylesheet" href="/Webchat/dist/css/app.min.css">
 </head>
 <body class="form-membership">
 
@@ -76,7 +76,7 @@
         <button class="btn btn-primary btn-block" id="register">Register</button>
         <hr>
         <p class="text-muted">Already have an account?</p>
-        <a href="/Webchat/user/login" class="btn btn-outline-light btn-sm">Sign in!</a>
+        <a href="/Webchat/user/loginpage" class="btn btn-outline-light btn-sm">Sign in!</a>
     </form>
     <!-- ./ form -->
 
@@ -84,8 +84,8 @@
 
 <!-- Bundle -->
 <script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
-<script src="./vendor/bundle.js"></script>
-<script src="./vendor/feather.min.js"></script>
+<script src="/Webchat/vendor/bundle.js"></script>
+<script src="/Webchat/vendor/feather.min.js"></script>
 <script type="application/javascript">
 	 $("#register").click(function () {
 						var id=document.getElementById("id");
@@ -96,9 +96,9 @@
 			                type: "POST",
 			                url: "/Webchat/user/register",
 			                data: {
-			                    UserID: id,
+			                    UserName: id,
 								Email:email,
-			                    pass: pass,
+			                    Password: pass,
 			                },
 			                success: function (data) {
 			                    if (data == "false") {
@@ -113,6 +113,6 @@
 	
 </script>
 <!-- App scripts -->
-<script src="./dist/js/app.min.js"></script>
+<script src="/Webchat/dist/js/app.min.js"></script>
 </body>
 </html>

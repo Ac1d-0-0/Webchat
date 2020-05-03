@@ -6,5 +6,7 @@ import webchat.model.User;
 
 public interface UserDao 
 {
-	public User login(@Param("UserId")String UserID,@Param("UserPass")String Password);
+	public User login(@Param("User")String User,@Param("UserPass")String Password);
+	
+	public int registe(@Param("Password")String pass,@Param("UserName")String name,@Param("UserEmail")String email);
 }

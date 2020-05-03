@@ -16,13 +16,12 @@ public interface UserService
 	public int login(String id,String pass);
 	/**
 	 * 用户注册方法
-	 * @param id
 	 * @param pass
 	 * @param name
 	 * @param email
 	 * @return 返回注册状态，1为成功，0为失败
 	 */
-	public int registe(String id,String pass,String name,String email);
+	public int registe(String pass,String name,String email);
 	/**
 	 * 根据用户id查找用户
 	 * @param id 用户id

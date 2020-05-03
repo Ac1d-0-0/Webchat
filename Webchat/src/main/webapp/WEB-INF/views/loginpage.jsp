@@ -62,7 +62,7 @@
     <!-- form -->
     <form>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required autofocus id="id">
+            <input type="text" class="form-control" placeholder="Username or Useremail" required autofocus id="id">
         </div>
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password" required id="pass">
@@ -76,7 +76,7 @@
         <button class="btn btn-primary btn-block" id="login">Sign in</button>
         <hr>
         <p class="text-muted">Don't have an account?</p>
-        <a href="/Webchat/user/register" class="btn btn-outline-light btn-sm">Register now!</a>
+        <a href="/Webchat/user/registerpage" class="btn btn-outline-light btn-sm">Register now!</a>
     </form>
 
 </div>
@@ -92,19 +92,24 @@
 	 $("#login").click(function () {
 						var id=document.getElementById("id");
 						var pass=document.getElementById("pass");
-						alert("hello");
+						alert("666");
 			            $.ajax({
 			                type: "POST",
 			                url: "/Webchat/user/login",
+			                header:{
+			                	'content-type': 'application/x-www-form-urlencoded'
+			                }
 			                data: {
-			                    UserID: id,
-			                    pass: pass,
+			                    'UserID': id,
+			                    'Password': pass,
 			                },
+			                
 			                success: function (data) {
 			                    if (data == "false") {
 			                        alert("用户名或密码错误");
 			                    }
 								else{
+									
 									window.location.replace("Webchat/user/chat");
 								}
 			                }
