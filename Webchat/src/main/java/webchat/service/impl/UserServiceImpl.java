@@ -19,11 +19,14 @@ public class UserServiceImpl implements UserService
 	public int login(String UserNameOrUserEmail, String Password) 
 	{
 		User u = ud.login(UserNameOrUserEmail, Password);
-		if((u.getUserName().equals(UserNameOrUserEmail)&&u.getUserPass().equals(Password))||u.getUserEmail().equals(UserNameOrUserEmail)&&u.getUserPass().equals(Password))
+		if(u!=null)
 		{
 			return 1;
 		}
-		return 0;
+		else 
+		{
+			return 0;
+		}
 	}
 	
 	public int registe(String pass,String name,String email)
