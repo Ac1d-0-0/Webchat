@@ -390,6 +390,21 @@
 			                }
 			            });
 			        });
+	 $("#send").click(function(){
+		 var message = document.getElementById("usermessage");
+		 var friendid = "111";
+		 var messageform = {"Content":message,"Friendid":friendid};
+			$.post("/app/chat/message",messageform,function(result){
+				if(result=="true"){//注册成功
+	            	alert("send successfully!!");
+	            }else{
+					alert("sending failed!!");
+	            }
+			})		 
+		 
+	 }
+			 
+	 );
 	
 	
 </script>

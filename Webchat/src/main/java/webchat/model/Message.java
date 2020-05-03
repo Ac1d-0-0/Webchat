@@ -4,36 +4,29 @@ import java.util.Date;
 
 public class Message 
 {
-	private String MessageId;
-	private String Messageto;
-	private String Messagefrom;
+	private int Messageto;
+	private int Messagefrom;
 	private String MessageContent;
 	private Date SendTime;
 	
-	public Message(String messageId, String messageto, String messagefrom, String messageContent, Date sendTime) 
+	public Message( int messageto, int messagefrom, String messageContent, Date sendTime) 
 	{
-		this.MessageId = messageId;
 		this.Messageto = messageto;
 		this.Messagefrom = messagefrom;
 		this.MessageContent = messageContent;
 		this.SendTime = sendTime;
 	}
-	public String getMessageId() {
-		return MessageId;
-	}
-	public void setMessageId(String messageId) {
-		MessageId = messageId;
-	}
-	public String getMessageto() {
+
+	public int getMessageto() {
 		return Messageto;
 	}
-	public void setMessageto(String messageto) {
+	public void setMessageto(int messageto) {
 		Messageto = messageto;
 	}
-	public String getMessagefrom() {
+	public int getMessagefrom() {
 		return Messagefrom;
 	}
-	public void setMessagefrom(String messagefrom) {
+	public void setMessagefrom(int messagefrom) {
 		Messagefrom = messagefrom;
 	}
 	public String getMessageContent() {

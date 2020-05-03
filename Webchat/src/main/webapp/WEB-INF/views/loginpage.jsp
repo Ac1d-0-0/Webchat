@@ -96,7 +96,7 @@
 						$.post("/Webchat/user/login",loginForm,function(result){
 							if(result=="true"){//注册成功
 				            	alert("Login successfully!!");
-				                window.location.href="/Webchat/user/chat";
+				                window.location.href="/Webchat/user/chatpage";
 				            }else{
 								alert("Username(Email) or Password failed!!");
 				            }
