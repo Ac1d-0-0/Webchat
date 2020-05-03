@@ -13,7 +13,7 @@ public interface UserService
 	 * @param pass
 	 * @return 返回登录状态，1为成功，0为失败
 	 */
-	public int login(String id,String pass);
+	public User login(String id,String pass);
 	/**
 	 * 用户注册方法
 	 * @param pass

@@ -6,6 +6,7 @@ public class User
 	private int UserId;
 	private String UserPass;
 	private String UserEmail;
+	private int UserState;
 	
 	public String getUserName() {
 		return UserName;
@@ -30,6 +31,12 @@ public class User
 	}
 	public void setUserEmail(String userEmail) {
 		UserEmail = userEmail;
+	}
+	public int getUserState() {
+		return UserState;
+	}
+	public void setUserState(int userState) {
+		UserState = userState;
 	}
 	
 }
