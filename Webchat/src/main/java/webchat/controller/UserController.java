@@ -32,13 +32,12 @@ public class UserController
 		User u = uservice.login(name, pass);
 		if(u != null)
 		{
-			result = "true";
+			//result = "true";
 			HttpSession session = request.getSession();
 			session.setAttribute("ID",u.getUserId());
+			return "true";
 		}
-		else
-			result = "false";
-		return result;		
+		return "false";		
 	}
 	
 	@RequestMapping("/loginpage")//www.xxx.com/Webchat/user/loginpage

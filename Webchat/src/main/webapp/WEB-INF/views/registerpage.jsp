@@ -73,7 +73,7 @@
         <div class="form-group">
             <input type="password" class="form-control" id="pass" placeholder="Password" required>
         </div>
-        <button class="btn btn-primary btn-block" id="register">Register</button>
+        <button type="button" class="btn btn-primary btn-block" id="register">Register</button>
         <hr>
         <p class="text-muted">Already have an account?</p>
         <a href="/Webchat/user/loginpage" class="btn btn-outline-light btn-sm">Sign in!</a>
@@ -94,11 +94,11 @@
 						var registerForm={"UserName":id,"UserEmail":email,"UserPass":pass}
 					
 						$.post("/Webchat/user/register",registerForm,function(result){
-							if(result=="true"){//注册成功
-				            	alert("Register successfully!!")
+							if(result.toString()=="true"){//注册成功
+				            	alert("Register successfully!!");
 				                window.location.href="/Webchat/user/loginpage";
 				            }else{
-								alert("Register failed!!")
+								alert("Register failed!!");
 				            }
 						})
 			        });

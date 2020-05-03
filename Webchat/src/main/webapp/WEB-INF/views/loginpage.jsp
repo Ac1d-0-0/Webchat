@@ -60,7 +60,7 @@
     <h5>Sign in</h5>
 
     <!-- form -->
-    <form id="loginForm" enctype="application/x-www-form-urlencoded">
+    <form id="loginForm">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username or Useremail" required autofocus id="id">
         </div>
@@ -73,7 +73,7 @@
                 <label class="custom-control-label" for="customCheck1">Remember me</label>
             </div>
         </div>
-        <button class="btn btn-primary btn-block" id="login">Sign in</button>
+        <button type="button" class="btn btn-primary btn-block" id="login">Sign in</button>
         <hr>
         <p class="text-muted">Don't have an account?</p>
         <a href="/Webchat/user/registerpage" class="btn btn-outline-light btn-sm">Register now!</a>
@@ -94,11 +94,11 @@
 						var pass=document.getElementById("pass").value;
 						var loginForm = {"UserName":id,"Password":pass};
 						$.post("/Webchat/user/login",loginForm,function(result){
-							if(result=="true"){//登录成功
-				                alert("Login successfully!!")
+							if(result=="true"){//注册成功
+				            	alert("Login successfully!!");
 				                window.location.href="/Webchat/chat";
 				            }else{
-								alert("Login failed")
+								alert("Username(Email) or Password failed!!");
 				            }
 						})
 			        });
