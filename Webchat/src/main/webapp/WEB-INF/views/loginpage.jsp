@@ -90,15 +90,15 @@
 <script src="/Webchat/dist/js/app.min.js"></script>
 <script type="application/javascript">
 	 $("#login").click(function () {
-						var loginForm =$("#loginForm").serialize()
-						alert("666");
+						var id=document.getElementById("id").value;
+						var pass=document.getElementById("pass").value;
+						var loginForm = {"UserName":id,"Password":pass};
 						$.post("/Webchat/user/login",loginForm,function(result){
 							if(result=="true"){//登录成功
-				                
-				                window.location.href="http://www.baidu.com";
-				                
+				                alert("Login successfully!!")
+				                window.location.href="/Webchat/chat";
 				            }else{
-								alert("登陆失败")
+								alert("Login failed")
 				            }
 						})
 			        });

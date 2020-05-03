@@ -88,27 +88,19 @@
 <script src="/Webchat/vendor/feather.min.js"></script>
 <script type="application/javascript">
 	 $("#register").click(function () {
-						var id=document.getElementById("id");
-						var email=document.getElementById("email");
-						var pass=document.getElementById("pass");
-
-			            $.ajax({
-			                type: "POST",
-			                url: "/Webchat/user/register",
-			                data: {
-			                    UserName: id,
-								Email:email,
-			                    Password: pass,
-			                },
-			                success: function (data) {
-			                    if (data == "false") {
-			                        alert("用户名或邮箱已存在，注册失败");
-			                    }
-								else{
-									window.location.replace("Webchat/user/login");
-								}
-			                }
-			            });
+						var id=document.getElementById("id").value;
+						var email=document.getElementById("email").value;
+						var pass=document.getElementById("pass").value;
+						var registerForm={"UserName":id,"UserEmail":email,"UserPass":pass}
+					
+						$.post("/Webchat/user/register",registerForm,function(result){
+							if(result=="true"){//注册成功
+				            	alert("Register successfully!!")
+				                window.location.href="/Webchat/user/loginpage";
+				            }else{
+								alert("Register failed!!")
+				            }
+						})
 			        });
 	
 </script>
