@@ -48,6 +48,7 @@ public class Message
 	public void setSendTime(Date sendTime) {
 		SendTime = sendTime;
 	}
+
 	
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import webchat.model.User;
 import webchat.service.UserService;
 
 @Controller
@@ -26,15 +27,14 @@ public class UserController
 	public String Login(HttpServletRequest request)
 	{
 		String result;
-		String ID = request.getParameter("UserName");
+		String name = request.getParameter("UserName");
 		String pass = request.getParameter("Password");
-		System.out.println(ID+"  "+pass);
-		int i = uservice.login(ID, pass);
-		if(i==1)
+		User u = uservice.login(name, pass);
+		if(u != null)
 		{
 			result = "true";
 			HttpSession session = request.getSession();
-			session.setAttribute("ID", ID);
+			session.setAttribute("ID",u.getUserId());
 		}
 		else
 			result = "false";

@@ -5,6 +5,8 @@
 		<id column="u_id" property="UserId" jdbcType="INTEGER"/>
 		<result column="u_name" property="UserName" jdbcType="VARCHAR"/>
 		<result column="u_password" property="UserPass" jdbcType="VARCHAR"/>
+		<result column="u_email" property="UserEmail" jdbcType="VARCHAR"/>
+		<result column="u_livestate" property="UserState" jdbcType="INTEGER"/>
 	</resultMap>
 	<select id="login" resultMap="UserMap" parameterType="java.lang.String">
 		select distinct *

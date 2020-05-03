@@ -16,17 +16,10 @@ public class UserServiceImpl implements UserService
 {
 	@Resource
 	private UserDao ud;
-	public int login(String UserNameOrUserEmail, String Password) 
+	public User login(String UserNameOrUserEmail, String Password) 
 	{
 		User u = ud.login(UserNameOrUserEmail, Password);
-		if(u!=null)
-		{
-			return 1;
-		}
-		else 
-		{
-			return 0;
-		}
+		return u;
 	}
 	
 	public int registe(String pass,String name,String email)
