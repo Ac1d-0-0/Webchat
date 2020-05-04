@@ -2,21 +2,20 @@ package webchat.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Message 
 {
 	private int Messageto;
 	private int Messagefrom;
 	private String MessageContent;
 	private Date SendTime;
-	
-	public Message( int messageto, int messagefrom, String messageContent, Date sendTime) 
-	{
-		this.Messageto = messageto;
-		this.Messagefrom = messagefrom;
-		this.MessageContent = messageContent;
-		this.SendTime = sendTime;
+	@JsonCreator
+	public Message(@JsonProperty("Messageto") int messageto, @JsonProperty("MessageContent")String messageContent) {
+		Messageto = messageto;
+		MessageContent = messageContent;
 	}
-
 	public int getMessageto() {
 		return Messageto;
 	}
