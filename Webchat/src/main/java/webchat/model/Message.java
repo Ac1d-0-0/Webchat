@@ -12,9 +12,13 @@ public class Message
 	private String MessageContent;
 	private Date SendTime;
 	@JsonCreator
-	public Message(@JsonProperty("Messageto") int messageto, @JsonProperty("MessageContent")String messageContent) {
+	public Message(@JsonProperty("Messageto") int messageto, 
+				   @JsonProperty("MessageContent")String messageContent,
+				   @JsonProperty("Messagefrom") int messagefrom) 
+	{
 		Messageto = messageto;
 		MessageContent = messageContent;
+		Messagefrom = messagefrom;
 	}
 	public int getMessageto() {
 		return Messageto;

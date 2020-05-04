@@ -9,13 +9,19 @@ $(function () {
 
 function connect()
 {
-	 stompClient.connect();
+	 stompClient.connect({},function(frame){
+		 stompClient.subscribe("topic/chat/message",function(message){
+			 var json = JSON.parse(message.body);
+			 console.log(json);
+		 })
+	 });
 }
 
 function sendMessage()
 {
 	 var message = document.getElementById("usermessage");
 	 var friendid = 111;
-	 var messageform = {'MessageContent':message.value,'Messageto':friendid};
+	 var myid = document.getElementById("myid");
+	 var messageform = {'MessageContent':message.value,'Messageto':friendid,'Messagefrom':myid.value};
 	 stompClient.send("/app/chat/message",{contentType:'application/json'},JSON.stringify(messageform));
 }

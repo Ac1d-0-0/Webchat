@@ -77,13 +77,22 @@ public class UserController
 	public ModelAndView showChat(HttpServletRequest request)
 	{
 		ModelAndView modelview = new ModelAndView("/chatpage");
-		String IDstr1 = (request.getSession().getAttribute("ID")).toString();
-		int myid = Integer.parseInt(IDstr1);
-		List<String> l= uservice.getFriends(myid);
-		//modelview.getModel().put("friendslist",l);
-		modelview.addObject("friendslist",l);
-		System.out.print(modelview);
-		return modelview;
+		Object o = request.getSession().getAttribute("ID");
+		if (o != null)
+		{
+			String IDstr1 = o.toString();
+			int myid = Integer.parseInt(IDstr1);
+			List<String> l= uservice.getFriends(myid);
+			//modelview.getModel().put("friendslist",l);
+			modelview.addObject("friendslist",l);
+			modelview.addObject("id",myid);
+			System.out.print(modelview);
+			return modelview;
+		}
+		else
+		{
+			return new ModelAndView("/loginpage");
+		}
 	}
 	
 	
