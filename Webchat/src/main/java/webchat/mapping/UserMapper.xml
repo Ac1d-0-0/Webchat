@@ -19,4 +19,33 @@
 		value
 		(#{UserName},#{Password},#{UserEmail})
 	</insert>
+	<select id="GetUserbyemail" resultMap="UserMap" parameterType="java.lang.String">
+		select distinct *
+		from tb_user
+		where u_email = #{UserEmail}
+	</select>
+	<insert id="addfriend">
+		insert into tb_friend (f_friendid, f_userid)
+		value
+		(#{MyID},#{FID})
+	</insert>
+	<select id="isFriend" resultType="java.lang.Integer">
+		select count(*)
+		from tb_friend
+		where f_friendid = #{MyID} and f_userid=#{FID}
+		or f_friendid = #{FID} and f_userid=#{MyID}
+	</select>
+	<select id="getfriend" resultType="string">
+		select u_name
+		from tb_user
+		where u_id=ANY(
+		select f_friendid 
+		from tb_friend
+		where f_userid=#{MyID}
+		union
+		select f_userid
+		from tb_friend
+		where f_friendid = #{MyID}
+		)
+	</select>
 </mapper>

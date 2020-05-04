@@ -47,7 +47,15 @@ public interface UserService
 	 * @param fdid 好友id
 	 * @return
 	 */
-	public int makefriends(String myid,String fdid);
 	
+	public int makefriends(int myid,String femail);
+	/**
+	 * @param myid 本人id
+	 * @param femail 好友邮箱
+ 	 */
 	 
+	public List<String> getFriends(int myid);
+	
+	
+	
 }

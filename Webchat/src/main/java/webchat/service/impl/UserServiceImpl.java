@@ -46,9 +46,27 @@ public class UserServiceImpl implements UserService
 		return 0;
 	}
 
-	public int makefriends(String myid, String fdid) {
+	public int makefriends(int myid, String femail) {
 		// TODO 自动生成的方法存根
-		return 0;
+		User u =ud.GetUserbyemail(femail);
+		if (u==null) 
+			return 5;
+		else {
+			int fid=u.getUserId();
+			int isfriend = ud.isFriend(myid,fid);
+			if (isfriend==1) {
+				return 4;
+			}
+			else {
+				int status=ud.addfriend(myid,fid);
+				return status;
+			}
+		}
+	}
+	
+	public List<String> getFriends(int myid){
+		List<String> l= ud.getfriend(myid);
+		return l;
 	}
 
 }

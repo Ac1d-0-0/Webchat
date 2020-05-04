@@ -92,7 +92,6 @@
 						var email=document.getElementById("email").value;
 						var pass=document.getElementById("pass").value;
 						var registerForm={"UserName":id,"UserEmail":email,"UserPass":pass};
-						alert('666');
 						$.post("/Webchat/user/register",registerForm,function(result){
 							if(result.toString()=="true"){//注册成功
 				            	alert("Register successfully!!");

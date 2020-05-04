@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -40,11 +40,7 @@
                 <form>
                     <div class="form-group">
                         <label for="emails" class="col-form-label">Email addresses</label>
-                        <input type="text" class="form-control" id="emails">
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="col-form-label">Invitation message</label>
-                        <textarea class="form-control" id="ivmessage"></textarea>
+                        <input type="email" class="form-control" id="emails">
                     </div>
                 </form>
             </div>
@@ -190,13 +186,13 @@
                     </a>
                 </li>
                 <li data-toggle="tooltip" title="User menu" data-placement="right">
-                    <a href="./login.html" data-toggle="dropdown">
+                    <a href="./loginpage" data-toggle="dropdown">
                         <figure class="avatar">
                             <img src="/Webchat/dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
                         </figure>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="login.html" class="dropdown-item text-danger">Logout</a>
+                        <a href="./loginpage" class="dropdown-item text-danger">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -238,18 +234,18 @@
                 </form>
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush">
-						<c:forEach item="personlist" var="p">
+						<c:forEach items="${personlist}" var="p">
                         <li class="list-group-item">
 							<figure class="avatar avatar-state-success">
 							    <img src="/Webchat/dist/media/img/man_avatar1.jpg" class="rounded-circle" alt="image">
 							</figure>
                             <div class="users-list-body">
                                 <div>
-                                    <h5 class="text-primary">p.name</h5>
-                                    <p>p.message</p>
+                                    <h5 class="text-primary">${p.name}</h5>
+                                    <p>${p.message}</p>
                                 </div>
                                 <div class="users-list-action">
-                                    <small class="text-primary">p.time</small>
+                                    <small class="text-primary">${p.time}</small>
                                 </div>
                             </div>
                         </li>
@@ -281,7 +277,7 @@
                 </form>
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush">
-						<c:forEach item="friendslist" var="f">
+						<c:forEach items="${friendslist}" var="f">
                         <li class="list-group-item" data-navigation-target="chats">
                             <div>
                                 <figure class="avatar">
@@ -290,7 +286,7 @@
                             </div>
                             <div class="users-list-body">
                                 <div>
-                                    <h5>${f.name}</h5>
+                                    <h5>${f}</h5>
                                     <p> </p>
                                 </div>
                                 <div class="users-list-action">
@@ -323,7 +319,7 @@
 
             <div class="chat-body"> <!-- .no-message -->
                 <div class="messages">
-					<c:forEach item="messagelist" var="m">
+					<c:forEach items="${messagelist}" var="m">
                     <div class="${m.messagetype}">
                         <div class="message-avatar">
                             <figure class="avatar">
@@ -379,19 +375,25 @@
 
 <script type="application/javascript">
 	 $("#invite").click(function () {
-						var email=document.getElementById("email");
-						var message=document.getElementById("ivmessage");
+						var femail=document.getElementById("emails").value;
 
 			            $.ajax({
 			                type: "POST",
 			                url: "/Webchat/user/addfriend",
 			                data: {
-			                    UserID: id,
-								Email:email,
-			                    pass: pass,
+			                    FriendEmail: femail,
+								
 			                },
 			                success: function (data) {
-								alert("消息发送成功");
+								if (data=="1")
+									alert("添加成功");
+								else if (data=="0")
+									alert("添加失败");
+								else if (data=="5")
+									alert("用户名不存在，请重新输入");
+								else if (data=="4")
+									alert("请勿重复添加好友！")
+									
 			                }
 			            });
 			        });

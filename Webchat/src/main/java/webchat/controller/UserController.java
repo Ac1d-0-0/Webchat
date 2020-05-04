@@ -1,5 +1,7 @@
 package webchat.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -75,6 +77,28 @@ public class UserController
 	public ModelAndView showChat(HttpServletRequest request)
 	{
 		ModelAndView modelview = new ModelAndView("/chatpage");
+		String IDstr1 = (request.getSession().getAttribute("ID")).toString();
+		int myid = Integer.parseInt(IDstr1);
+		List<String> l= uservice.getFriends(myid);
+		//modelview.getModel().put("friendslist",l);
+		modelview.addObject("friendslist",l);
+		System.out.print(modelview);
 		return modelview;
 	}
+	
+	
+
+	@RequestMapping("/addfriend")
+	@ResponseBody
+	public int addFriend(HttpServletRequest request) 
+	{
+		String IDstr1 = (request.getSession().getAttribute("ID")).toString();
+		int myid = Integer.parseInt(IDstr1);
+		String femail = request.getParameter("FriendEmail");
+		int state = uservice.makefriends(myid, femail);
+		return state;
+		
+	} 
+	
+	
 }
