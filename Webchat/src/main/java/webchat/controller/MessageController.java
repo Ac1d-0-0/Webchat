@@ -24,7 +24,7 @@ public class MessageController
 	{
 		Date Time = new Date();
 		m.setSendTime(Time);
-		messagingTemplate.convertAndSend("topic/chat/message",m);
+		messagingTemplate.convertAndSend("/topic/chat/message",m);
 	}
 	
 }

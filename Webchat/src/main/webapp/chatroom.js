@@ -10,9 +10,12 @@ $(function () {
 function connect()
 {
 	 stompClient.connect({},function(frame){
-		 stompClient.subscribe("topic/chat/message",function(message){
+		 stompClient.subscribe("/topic/chat/message",function(message){
 			 var json = JSON.parse(message.body);
-			 console.log(json);
+			 var content = json.messageContent;
+			 var from = json.messagefrom;
+			 var to = json.messageto;
+			 var time = json.sendTime;
 		 })
 	 });
 }
