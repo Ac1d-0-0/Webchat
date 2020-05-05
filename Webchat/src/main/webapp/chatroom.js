@@ -23,6 +23,10 @@ function connect()
             	 {
             	 	alert("message");
             	 }
+             if($("#myid").val()==toid)
+            	 {
+            	 	//消息提醒
+            	 }
 		 })
 	 });
 }
