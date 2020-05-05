@@ -162,15 +162,15 @@
                     <input type="text" class="form-control" placeholder="Search chats">
                 </form>
                 <div class="sidebar-body">
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush ">
 						<c:forEach items="${friendslist}" var="f">
-                        <li class="list-group-item">
+                        <li class="list-group-item" id="${f.getUserId()}">
 							<figure class="avatar avatar-state-success">
 							    <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
 							</figure>
                             <div class="users-list-body">
                                 <div>
-                                    <h5 class="text-primary">${f}</h5>
+                                    <h5 class="text-primary">${f.getUserName()}</h5>
                                     <p> </p>
                                 </div>
                                 <div class="users-list-action">
@@ -207,7 +207,7 @@
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush">
 						<c:forEach items="${friendslist}" var="f">
-                        <li class="list-group-item" data-navigation-target="chats">
+                        <li class="list-group-item" data-navigation-target="chats" id="${f.getUserId()}">
                             <div>
                                 <figure class="avatar">
                                     <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
@@ -215,7 +215,7 @@
                             </div>
                             <div class="users-list-body">
                                 <div>
-                                    <h5>${f}</h5>
+                                    <h5>${f.getUserName()}</h5>
                                     <p> </p>
                                 </div>
                                 <div class="users-list-action">
@@ -245,7 +245,6 @@
 
         <!-- chat -->
         <div class="chat">
-
             <div class="chat-body"> <!-- .no-message -->
                 <div class="messages">
 					<c:forEach items="${messagelist}" var="m">
@@ -269,6 +268,7 @@
             <div class="chat-footer">
                 <form>
                 	<input type="hidden" id="myid" value="${id}"/>
+                	<input type="hidden" id="toid" value="${ToID}"/>
                     <input type="text" class="form-control" id="usermessage" placeholder="Write a message.">
                     <div class="form-buttons">
                         <button class="btn btn-primary" type="button" id="send">

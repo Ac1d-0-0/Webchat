@@ -54,7 +54,7 @@ public interface UserService
 	 * @param femail ∫√”—” œ‰
  	 */
 	 
-	public List<String> getFriends(int myid);
+	public List<User> getFriends(int myid);
 	
 	
 	

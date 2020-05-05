@@ -1,5 +1,6 @@
 var socket = new SockJS("/Webchat/websocket");
 var stompClient = Stomp.over(socket);
+
 $(function () {
     connect();
     $("#send").click(function(){
@@ -28,3 +29,23 @@ function sendMessage()
 	 var messageform = {'MessageContent':message.value,'Messageto':friendid,'Messagefrom':myid.value};
 	 stompClient.send("/app/chat/message",{contentType:'application/json'},JSON.stringify(messageform));
 }
+
+var chats = {
+		  chat: document.querySelectorAll('li.list-group-item'),
+		  };
+
+chats.chat.forEach(function (f) {
+	  f.addEventListener('mousedown', function () {
+		   		var id=f.id;
+		   		$.ajax({
+	                type: "POST",
+	                url: "/Webchat/user/chatpage",
+	                data: {
+	                    ToID:id,
+	                },
+	                success: function (data) {
+						alert("开始聊天");
+	                }
+	            });
+		  });
+		});

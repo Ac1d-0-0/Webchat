@@ -35,8 +35,8 @@
 		where f_friendid = #{MyID} and f_userid=#{FID}
 		or f_friendid = #{FID} and f_userid=#{MyID}
 	</select>
-	<select id="getfriend" resultType="string">
-		select u_name
+	<select id="getfriend" resultMap="UserMap">
+		select u_name,u_id
 		from tb_user
 		where u_id=ANY(
 		select f_friendid 
