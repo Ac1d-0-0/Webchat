@@ -69,4 +69,9 @@ public class UserServiceImpl implements UserService
 		return l;
 	}
 
+	public User GetUserbyid(int id) 
+	{
+		return ud.GetUserbyid(id);
+	}
+
 }

@@ -23,7 +23,7 @@ function connect()
 function sendMessage()
 {
 	 var message = document.getElementById("usermessage");
-	 var friendid = 111;
+	 var friendid = 10000;
 	 var myid = document.getElementById("myid");
 	 var messageform = {'MessageContent':message.value,'Messageto':friendid,'Messagefrom':myid.value};
 	 stompClient.send("/app/chat/message",{contentType:'application/json'},JSON.stringify(messageform));

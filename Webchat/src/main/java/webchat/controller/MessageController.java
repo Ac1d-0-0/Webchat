@@ -2,11 +2,15 @@ package webchat.controller;
 
 import java.util.Date;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import webchat.model.Message;
+import webchat.model.User;
+import webchat.service.UserService;
 
 
 
@@ -19,11 +23,17 @@ public class MessageController
 	 */
 	@Autowired
 	private SimpMessagingTemplate messagingTemplate;
+	@Resource
+	private UserService uservice;
 	@MessageMapping("/chat/message")
 	 public void receiveMessage(Message m)
 	{
 		Date Time = new Date();
 		m.setSendTime(Time);
+		User from = uservice.GetUserbyid(m.getMessagefrom());
+		User to = uservice.GetUserbyid(m.getMessageto());
+		m.setFromName(from.getUserName());
+		m.setToName(to.getUserName());
 		messagingTemplate.convertAndSend("/topic/chat/message",m);
 	}
 	

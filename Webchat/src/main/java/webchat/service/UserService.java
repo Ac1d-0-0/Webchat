@@ -55,7 +55,7 @@ public interface UserService
  	 */
 	 
 	public List<String> getFriends(int myid);
-	
+	public User GetUserbyid(int id);
 	
 	
 }

@@ -24,6 +24,11 @@
 		from tb_user
 		where u_email = #{UserEmail}
 	</select>
+		<select id="GetUserbyid" resultMap="UserMap" parameterType="java.lang.Integer">
+		select distinct *
+		from tb_user
+		where u_id = #{Id}
+	</select>
 	<insert id="addfriend">
 		insert into tb_friend (f_friendid, f_userid)
 		value
