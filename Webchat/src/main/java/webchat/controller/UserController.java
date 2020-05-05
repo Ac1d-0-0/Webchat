@@ -78,9 +78,6 @@ public class UserController
 	{
 		ModelAndView modelview = new ModelAndView("/chatpage");
 		Object o = request.getSession().getAttribute("ID");
-		String toid="";
-		if (request.getParameter("ToID")!=null)
-			toid=request.getParameter("ToID");
 		if (o != null)
 		{
 			String IDstr1 = o.toString();
@@ -88,18 +85,20 @@ public class UserController
 			List<User> l= uservice.getFriends(myid);
 			modelview.addObject("friendslist",l);
 			modelview.addObject("id",myid);
-			if(toid!="") {
-				int tid=Integer.parseInt(toid);
-				modelview.addObject("ToID",tid);
-			}
-
-			System.out.print(modelview);
 			return modelview;
 		}
 		else
 		{
 			return new ModelAndView("/loginpage");
 		}
+	}
+	@RequestMapping("/friendid")
+	@ResponseBody
+	public int getfriendid(HttpServletRequest request)
+	{
+		String toid=request.getParameter("ToID");
+		int tid=Integer.parseInt(toid);
+		return tid;
 	}
 	
 	
