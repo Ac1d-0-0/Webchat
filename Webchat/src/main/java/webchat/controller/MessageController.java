@@ -32,9 +32,13 @@ public class MessageController
 		m.setSendTime(Time);
 		User from = uservice.GetUserbyid(m.getMessagefrom());
 		User to = uservice.GetUserbyid(m.getMessageto());
-		m.setFromName(from.getUserName());
-		m.setToName(to.getUserName());
-		messagingTemplate.convertAndSend("/topic/chat/message",m);
+		int i = uservice.isfriend(from.getUserId(), to.getUserId());
+		if(i!=0)
+		{
+			m.setFromName(from.getUserName());
+			m.setToName(to.getUserName());
+			messagingTemplate.convertAndSend("/topic/chat/message",m);
+		}
 	}
 	
 }

@@ -2,6 +2,7 @@ package webchat.model;
 
 import java.util.Date;
 
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

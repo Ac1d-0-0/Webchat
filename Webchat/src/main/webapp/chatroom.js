@@ -14,9 +14,15 @@ function connect()
 		 stompClient.subscribe("/topic/chat/message",function(message){
 			 var json = JSON.parse(message.body);
 			 var content = json.messageContent;
-			 var from = json.messagefrom;
-			 var to = json.messageto;
-			 var time = json.sendTime;
+			 var fromid = json.messagefrom;
+			 var toid = json.messageto;
+			 var fromname = json.fromName;
+			 var toname = json.toName;
+             var time = new Date(json.sendTime);
+             if(($("#toid").val()==fromid)&&($("#myid").val()==toid))//对接收端进行检查
+            	 {
+            	 	alert("message");
+            	 }
 		 })
 	 });
 }
@@ -45,6 +51,7 @@ chats.chat.forEach(function (f) {
 	                },
 	                success: function (data) {
 						alert("开始聊天");
+						$("#toid").val(id);
 	                }
 	            });
 		  });
