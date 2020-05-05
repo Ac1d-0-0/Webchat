@@ -64,8 +64,8 @@ public class UserServiceImpl implements UserService
 		}
 	}
 	
-	public List<String> getFriends(int myid){
-		List<String> l= ud.getfriend(myid);
+	public List<User> getFriends(int myid){
+		List<User> l= ud.getfriend(myid);
 		return l;
 	}
 

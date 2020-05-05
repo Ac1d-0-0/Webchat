@@ -20,7 +20,10 @@ public interface UserDao
 	
 	public int isFriend(@Param("MyID")int myid,@Param("FID")int fid);
 	
-	public List<String> getfriend(@Param("MyID")int myid);
+
+	public List<User> getfriend(@Param("MyID")int myid);
 	
 	public User GetUserbyid(@Param("Id")int id);
+
+
 }

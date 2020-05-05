@@ -52,72 +52,6 @@
 </div>
 <!-- ./ add friends modal -->
 
-<!-- new group modal -->
-<div class="modal fade" id="newGroup" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-zoom" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">
-                    <i data-feather="users" class="mr-2"></i> New Group
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="ti-close"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="group_name" class="col-form-label">Group name</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="group_name">
-                            <div class="input-group-append">
-                                <button class="btn btn-light" data-toggle="tooltip" title="Emoji" type="button">
-                                    <i data-feather="smile"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mb-2">The group members</p>
-                    <div class="form-group">
-                        <div class="avatar-group">
-                            <figure class="avatar" data-toggle="tooltip" title="Tobit Spraging">
-                                <span class="avatar-title bg-success rounded-circle">T</span>
-                            </figure>
-                            <figure class="avatar" data-toggle="tooltip" title="Cloe Jeayes">
-                                <img src="./dist/media/img/women_avatar4.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <figure class="avatar" data-toggle="tooltip" title="Marlee Perazzo">
-                                <span class="avatar-title bg-warning rounded-circle">M</span>
-                            </figure>
-                            <figure class="avatar" data-toggle="tooltip" title="Stafford Pioch">
-                                <img src="./dist/media/img/man_avatar1.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <figure class="avatar" data-toggle="tooltip" title="Bethena Langsdon">
-                                <span class="avatar-title bg-info rounded-circle">B</span>
-                            </figure>
-                            <a href="#" title="Add friends">
-                                <figure class="avatar">
-                                    <span class="avatar-title bg-primary rounded-circle">
-                                        <i data-feather="plus"></i>
-                                    </span>
-                                </figure>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="description" class="col-form-label">Description</label>
-                        <textarea class="form-control" id="description"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Create Group</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ./ new group modal -->
-
 
 
 <!-- layout -->
@@ -188,7 +122,7 @@
                 <li data-toggle="tooltip" title="User menu" data-placement="right">
                     <a href="./loginpage" data-toggle="dropdown">
                         <figure class="avatar">
-                            <img src="/Webchat/dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
+                            <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
                         </figure>
                     </a>
                     <div class="dropdown-menu">
@@ -211,11 +145,6 @@
                 <header>
                     <span>Chats</span>
                     <ul class="list-inline">
-                        <li class="list-inline-item" data-toggle="tooltip" title="New group">
-                            <a class="btn btn-outline-light" href="#" data-toggle="modal" data-target="#newGroup">
-                                <i data-feather="users"></i>
-                            </a>
-                        </li>
                         <li class="list-inline-item">
                             <a class="btn btn-outline-light" data-toggle="tooltip" title="New chat" href="#"
                                data-navigation-target="friends">
@@ -233,19 +162,19 @@
                     <input type="text" class="form-control" placeholder="Search chats">
                 </form>
                 <div class="sidebar-body">
-                    <ul class="list-group list-group-flush">
-						<c:forEach items="${personlist}" var="p">
-                        <li class="list-group-item">
+                    <ul class="list-group list-group-flush ">
+						<c:forEach items="${friendslist}" var="f">
+                        <li class="list-group-item" id="${f.getUserId()}">
 							<figure class="avatar avatar-state-success">
-							    <img src="/Webchat/dist/media/img/man_avatar1.jpg" class="rounded-circle" alt="image">
+							    <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
 							</figure>
                             <div class="users-list-body">
                                 <div>
-                                    <h5 class="text-primary">${p.name}</h5>
-                                    <p>${p.message}</p>
+                                    <h5 class="text-primary">${f.getUserName()}</h5>
+                                    <p> </p>
                                 </div>
                                 <div class="users-list-action">
-                                    <small class="text-primary">${p.time}</small>
+                                    <small class="text-primary"> </small>
                                 </div>
                             </div>
                         </li>
@@ -278,15 +207,15 @@
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush">
 						<c:forEach items="${friendslist}" var="f">
-                        <li class="list-group-item" data-navigation-target="chats">
+                        <li class="list-group-item" data-navigation-target="chats" id="${f.getUserId()}">
                             <div>
                                 <figure class="avatar">
-                                    <img src="/Webchat/dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
+                                    <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
                                 </figure>
                             </div>
                             <div class="users-list-body">
                                 <div>
-                                    <h5>${f}</h5>
+                                    <h5>${f.getUserName()}</h5>
                                     <p> </p>
                                 </div>
                                 <div class="users-list-action">
@@ -316,14 +245,13 @@
 
         <!-- chat -->
         <div class="chat">
-
             <div class="chat-body"> <!-- .no-message -->
                 <div class="messages">
 					<c:forEach items="${messagelist}" var="m">
                     <div class="${m.messagetype}">
                         <div class="message-avatar">
                             <figure class="avatar">
-                                <img src="/Webchat/dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
+                                <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
                             </figure>
                             <div>
                                 <h5>${m.name}</h5>
@@ -340,6 +268,7 @@
             <div class="chat-footer">
                 <form>
                 	<input type="hidden" id="myid" value="${id}"/>
+                	<input type="hidden" id="toid" value="${ToID}"/>
                     <input type="text" class="form-control" id="usermessage" placeholder="Write a message.">
                     <div class="form-buttons">
                         <button class="btn btn-primary" type="button" id="send">
@@ -367,7 +296,7 @@
 <script src="/Webchat/dist/js/app.min.js"></script>
 
 <!-- Examples -->
-<script src="/Webchat/dist/js/examples.js"></script>
+
 
 <!--sockJS cdn-->
 <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>

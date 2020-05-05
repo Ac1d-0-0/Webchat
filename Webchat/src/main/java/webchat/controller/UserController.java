@@ -78,14 +78,21 @@ public class UserController
 	{
 		ModelAndView modelview = new ModelAndView("/chatpage");
 		Object o = request.getSession().getAttribute("ID");
+		String toid="";
+		if (request.getParameter("ToID")!=null)
+			toid=request.getParameter("ToID");
 		if (o != null)
 		{
 			String IDstr1 = o.toString();
-			int myid = Integer.parseInt(IDstr1);
-			List<String> l= uservice.getFriends(myid);
-			//modelview.getModel().put("friendslist",l);
+			int myid = Integer.parseInt(IDstr1);	
+			List<User> l= uservice.getFriends(myid);
 			modelview.addObject("friendslist",l);
 			modelview.addObject("id",myid);
+			if(toid!="") {
+				int tid=Integer.parseInt(toid);
+				modelview.addObject("ToID",tid);
+			}
+
 			System.out.print(modelview);
 			return modelview;
 		}
