@@ -159,9 +159,6 @@
                         </li>
                     </ul>
                 </header>
-                <form>
-                    <input type="text" class="form-control" placeholder="Search chats">
-                </form>
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush ">
                     	<li class="list-group-item" id="99999">
@@ -216,9 +213,7 @@
                         </li>
                     </ul>
                 </header>
-                <form>
-                    <input type="text" class="form-control" placeholder="Search friends">
-                </form>
+
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush">
 						<c:forEach items="${friendslist}" var="f">
