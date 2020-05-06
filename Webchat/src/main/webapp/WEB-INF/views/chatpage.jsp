@@ -261,7 +261,7 @@
         <!-- chat -->
         <div class="chat">
             <div class="chat-body"> <!-- .no-message -->
-                <div class="messages" id="MSG">
+                <div class="messages"  style="height: 750px; overflow-y:scroll" id="MSG">
                 	
                 </div>
             </div>
