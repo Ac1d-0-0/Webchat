@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/Webchat/vendor/enjoyhint/enjoyhint.css">
     <!-- App styles -->
     <link rel="stylesheet" href="/Webchat/dist/css/app.min.css">
+
 </head>
 <body>
 
@@ -265,11 +266,11 @@
                 </div>
             </div>
             <div class="chat-footer">
-                <form>
+                <form onsubmit="return false;">
                 	<input type="hidden" id="myid" value="${id}"/>
                 	<input type="hidden" id="toid" value="${ToID}"/>
                 	<input type="hidden" id="myname" value="${MyName}"/>
-                    <input type="text" class="form-control" id="usermessage" placeholder="Write a message.">
+                    <input type="text" class="form-control" id="usermessage" placeholder="Write a message." >
                     <div class="form-buttons">
                         <button class="btn btn-primary" type="button" id="send">
                             <i data-feather="send"></i>
@@ -290,7 +291,7 @@
 <script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
 <script src="/Webchat/vendor/bundle.js"></script>
 <script src="/Webchat/vendor/feather.min.js"></script>
-<script src="/Webchat/vendor/enjoyhint/enjoyhint.min.js"></script>
+
 
 <!-- App scripts -->
 <script src="/Webchat/dist/js/app.min.js"></script>
@@ -304,6 +305,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
 <script type="application/javascript">
+	
+		
 	 $("#invite").click(function () {
 						var femail=document.getElementById("emails").value;
 
