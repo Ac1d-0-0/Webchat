@@ -81,10 +81,13 @@ public class UserController
 		if (o != null)
 		{
 			String IDstr1 = o.toString();
-			int myid = Integer.parseInt(IDstr1);	
+			int myid = Integer.parseInt(IDstr1);
+			User me=uservice.GetUserbyid(myid);
+			String myname=me.getUserName();
 			List<User> l= uservice.getFriends(myid);
 			modelview.addObject("friendslist",l);
 			modelview.addObject("id",myid);
+			modelview.addObject("MyName",myname);
 			return modelview;
 		}
 		else

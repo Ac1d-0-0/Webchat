@@ -246,13 +246,14 @@
         <!-- chat -->
         <div class="chat">
             <div class="chat-body"> <!-- .no-message -->
-                <div class="messages" id="msg">
+                <div class="messages" id="MSG">
                 </div>
             </div>
             <div class="chat-footer">
                 <form>
                 	<input type="hidden" id="myid" value="${id}"/>
                 	<input type="hidden" id="toid" value="${ToID}"/>
+                	<input type="hidden" id="myname" value="${MyName}"/>
                     <input type="text" class="form-control" id="usermessage" placeholder="Write a message.">
                     <div class="form-buttons">
                         <button class="btn btn-primary" type="button" id="send">
