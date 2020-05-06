@@ -22,10 +22,10 @@ function connect()
              if(($("#toid").val()==fromid)&&($("#myid").val()==toid))//对接收端进行检查
             	 {
             	 	var container=$(".messages");
-//            	 	var msgToDisplay=document.createElement('dev');
-//       		  		msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+toname+'</h5><div class="time"><i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+content+'</div></div>';
-            	 	var msgToDisplay = document.createElement('p');
-            	 	msgToDisplay.innerHTML='<span>'+time.toLocaleString()+'</span></br>[' + fromname + "] : " + content;
+            	 	var msgToDisplay=document.createElement('dev');
+       		  		msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+toname+'</h5><div class="time">'+time.toLocaleString()+'<i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+content+'</div></div>';
+//            	 	var msgToDisplay = document.createElement('p');
+//            	 	msgToDisplay.innerHTML='<span>'+time.toLocaleString()+'</span></br>[' + fromname + "] : " + content;
             	 	container.append(msgToDisplay);
             	 }
              if($("#myid").val()==toid)
@@ -48,11 +48,13 @@ function sendMessage()
 		  
 		  stompClient.send("/app/chat/message",{contentType:'application/json'},JSON.stringify(messageform));
   	 	  var container=$(".messages");
-//  	 	  var msgToDisplay=document.createElement('dev');
-//	  	  msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+myid.value+'</h5><div class="time"><i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+message.value+'</div></div>';
-  	 	  var msgToDisplay=document.createElement('p');
-  	 	  msgToDisplay.innerHTML='<span>'+time.toLocaleString()+'</span></br>[' + myname.value + "] : " + message.value;
+  	 	  var msgToDisplay=document.createElement('dev');
+  	 	  msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+myname.value+'</h5><div class="time">'+time.toLocaleString()+'<i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+message.value+'</div></div>'
+//	  	  msgToDisplay.innerHTML='<div class="message-item outgoing-message"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+myname.value+'</h5><div class="time">'+time.toLocaleString()+'<i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+message.value+'</div></div>';
+//  	 	  var msgToDisplay=document.createElement('p');
+//  	 	  msgToDisplay.innerHTML='<span>'+time.toLocaleString()+'</span></br>[' + myname.value + "] : " + message.value;
   	 	  container.append(msgToDisplay);
+  	 	  $("#MSG").trigger("create"); 
   	 	  $("#usermessage").val("");
 	 } 
 }

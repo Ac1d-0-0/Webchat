@@ -247,6 +247,20 @@
         <div class="chat">
             <div class="chat-body"> <!-- .no-message -->
                 <div class="messages" id="MSG">
+                	<div class="message-item outgoing-message">
+                        <div class="message-avatar">
+                            <figure class="avatar">
+                                <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
+                            </figure>
+                            <div>
+                                <h5>Mirabelle Tow</h5>
+                                <div class="time">01:20 PM <i class="ti-double-check text-info"></i></div>
+                            </div>
+                        </div>
+                        <div class="message-content">
+                            Hello how are you?
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="chat-footer">
