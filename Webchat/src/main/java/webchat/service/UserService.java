@@ -55,7 +55,7 @@ public interface UserService
  	 */
 	public List<User> getFriends(int myid);
 	public User GetUserbyid(int id);
-
+	public int isfriend(int myid,int fid);
 	
 	
 }

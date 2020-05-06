@@ -74,4 +74,8 @@ public class UserServiceImpl implements UserService
 		return ud.GetUserbyid(id);
 	}
 
+	public int isfriend(int myid, int fid) {
+		return ud.isFriend(myid, fid);
+	}
+
 }
