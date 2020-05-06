@@ -19,19 +19,20 @@ function connect()
 			 var fromname = json.fromName;
 			 var toname = json.toName;
              var time = new Date();
+             alert($("#toid").val());
              if(($("#toid").val()==fromid)&&($("#myid").val()==toid))//对接收端进行检查
             	 {
             	 	var container=$(".messages");
             	 	var msgToDisplay=document.createElement('dev');
-       		  		msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+toname+'</h5><div class="time">'+time.toLocaleString()+'<i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+content+'</div></div>';
-//            	 	var msgToDisplay = document.createElement('p');
-//            	 	msgToDisplay.innerHTML='<span>'+time.toLocaleString()+'</span></br>[' + fromname + "] : " + content;
+            	 	msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+fromname+'</h5><div class="time">'+time.toLocaleString()+'<i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+content+'</div></div>'
             	 	container.append(msgToDisplay);
             	 }
-             if($("#myid").val()==toid)
-            	 {
-            	 	//消息提醒
-            	 }
+             if($("#toid").val()=="99999"){
+            	 	var container=$(".messages");
+            	 	var msgToDisplay=document.createElement('dev');
+            	 	msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+fromname+'</h5><div class="time">'+time.toLocaleString()+'<i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+content+'</div></div>'
+            	 	container.append(msgToDisplay);   	 
+             }
 		 })
 	 });
 }
@@ -54,7 +55,6 @@ function sendMessage()
 //  	 	  var msgToDisplay=document.createElement('p');
 //  	 	  msgToDisplay.innerHTML='<span>'+time.toLocaleString()+'</span></br>[' + myname.value + "] : " + message.value;
   	 	  container.append(msgToDisplay);
-  	 	  $("#MSG").trigger("create"); 
   	 	  $("#usermessage").val("");
 	 } 
 }
@@ -65,11 +65,9 @@ var chats = {
 
 chats.chat.forEach(function (f) {
 	  f.addEventListener('mousedown', function () {
-//		  		var msg= $(".messages");
-		  		var msg=document.getElementById("MSG");
-		  		msg.innerHTML="";
-		  		var toname=document.getElementById("");
+		  		var msg=document.getElementById("MSG");		  		
 		   		var id=f.id;
+		   		msg.innerHTML='';
 		   		$.ajax({
 	                type: "POST",
 	                url: "/Webchat/user/chatpage",

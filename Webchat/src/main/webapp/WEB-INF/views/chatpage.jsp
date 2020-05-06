@@ -163,6 +163,20 @@
                 </form>
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush ">
+                    	<li class="list-group-item" id="99999">
+							<figure class="avatar avatar-state-success">
+							    <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
+							</figure>
+                            <div class="users-list-body">
+                                <div>
+                                    <h5 class="text-primary">公共聊天室</h5>
+                                    <p> </p>
+                                </div>
+                                <div class="users-list-action">
+                                    <small class="text-primary"> </small>
+                                </div>
+                            </div>
+                        </li>
 						<c:forEach items="${friendslist}" var="f">
                         <li class="list-group-item" id="${f.getUserId()}">
 							<figure class="avatar avatar-state-success">
@@ -247,20 +261,7 @@
         <div class="chat">
             <div class="chat-body"> <!-- .no-message -->
                 <div class="messages" id="MSG">
-                	<div class="message-item outgoing-message">
-                        <div class="message-avatar">
-                            <figure class="avatar">
-                                <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <div>
-                                <h5>Mirabelle Tow</h5>
-                                <div class="time">01:20 PM <i class="ti-double-check text-info"></i></div>
-                            </div>
-                        </div>
-                        <div class="message-content">
-                            Hello how are you?
-                        </div>
-                    </div>
+                	
                 </div>
             </div>
             <div class="chat-footer">

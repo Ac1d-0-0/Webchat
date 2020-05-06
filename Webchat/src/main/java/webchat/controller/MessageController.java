@@ -32,8 +32,11 @@ public class MessageController
 		m.setSendTime(Time);
 		User from = uservice.GetUserbyid(m.getMessagefrom());
 		User to = uservice.GetUserbyid(m.getMessageto());
-		int i = uservice.isfriend(from.getUserId(), to.getUserId());
-		if(i!=0)
+		int i=0 ;
+		if(from!=null) {
+			i = uservice.isfriend(from.getUserId(), to.getUserId());
+		}	
+		if(i!=0||m.getMessageto()==99999)
 		{
 			m.setFromName(from.getUserName());
 			m.setToName(to.getUserName());
