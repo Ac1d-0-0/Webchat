@@ -27,6 +27,7 @@
       		</init-param>
       <!-- 启动顺序，数字越小，启动越早 -->
       <load-on-startup>2</load-on-startup>
+      <async-supported>true</async-supported> 
   </servlet>
   <servlet>
      <servlet-name>default</servlet-name>
@@ -40,6 +41,7 @@
          <param-value>false</param-value>
      </init-param>
      <load-on-startup>1</load-on-startup>
+     <async-supported>true</async-supported>
   </servlet>
   <!--所有请求都会被springmvc拦截 -->
   <servlet-mapping>

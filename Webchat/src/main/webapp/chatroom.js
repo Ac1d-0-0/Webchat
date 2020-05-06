@@ -33,6 +33,10 @@ function connect()
             	 	msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+fromname+'</h5><div class="time">'+time.toLocaleString()+'<i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+content+'</div></div>'
             	 	container.append(msgToDisplay);   	 
              }
+             if($("#toid").val()!=fromid&&$("#myid").val()==toid)
+            	 {
+            	 alert("你收到一条来自"+fromname+"的消息：\n"+content);
+            	 }
 		 })
 	 });
 }
