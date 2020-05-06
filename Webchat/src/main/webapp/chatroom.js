@@ -21,7 +21,10 @@ function connect()
              var time = new Date(json.sendTime);
              if(($("#toid").val()==fromid)&&($("#myid").val()==toid))//对接收端进行检查
             	 {
-            	 	alert("message");
+            	 	var container=$(".messages");
+            	 	var msgToDisplay=document.createElement('dev');
+       		  		msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+toname+'</h5><div class="time"><i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+content+'</div></div>';
+       		  		container.append(msgToDisplay);
             	 }
              if($("#myid").val()==toid)
             	 {
@@ -37,7 +40,15 @@ function sendMessage()
 	 var friendid = document.getElementById("toid");
 	 var myid = document.getElementById("myid");
 	 var messageform = {'MessageContent':message.value,'Messageto':friendid.value,'Messagefrom':myid.value};
-	 stompClient.send("/app/chat/message",{contentType:'application/json'},JSON.stringify(messageform));
+	 if(message.value!=''){
+		  $("#usermessage").val("");
+		  stompClient.send("/app/chat/message",{contentType:'application/json'},JSON.stringify(messageform));
+  	 	  var container=$(".messages");
+  	 	  var msgToDisplay=document.createElement('dev');
+	  	  msgToDisplay.innerHTML='<div class="message-item"><div class="message-avatar"><figure class="avatar"><img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image"></figure><div><h5>'+myid.value+'</h5><div class="time"><i class="ti-double-check text-info"></i></div></div></div><div class="message-content">'+message.value+'</div></div>';
+	      container.append(msgToDisplay);
+
+	 } 
 }
 
 var chats = {

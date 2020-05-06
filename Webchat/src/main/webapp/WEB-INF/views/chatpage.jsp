@@ -246,23 +246,7 @@
         <!-- chat -->
         <div class="chat">
             <div class="chat-body"> <!-- .no-message -->
-                <div class="messages">
-					<c:forEach items="${messagelist}" var="m">
-                    <div class="${m.messagetype}">
-                        <div class="message-avatar">
-                            <figure class="avatar">
-                                <img src="/Webchat/dist/media/img/avator.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <div>
-                                <h5>${m.name}</h5>
-                                <div class="time">${m.time} <i class="ti-double-check text-info"></i></div>
-                            </div>
-                        </div>
-                        <div class="message-content">
-                            ${m.message}
-                        </div>
-                    </div>
-                    </c:forEach>
+                <div class="messages" id="msg">
                 </div>
             </div>
             <div class="chat-footer">
